@@ -32,3 +32,9 @@ setup/lambda/sourcemapping:
 		--event-source-arn arn:aws:sqs:us-east-1:000000000000:foo-queue  \
 		--function-name "foo-function"
 
+send: body=hogehoge
+send:
+	$(AWS) --endpoint-url http://localhost:4576 \
+		sqs send-message \
+		--queue-url 'http://localstack:4576/queue/foo-queue' \
+		--message-body '$(body)'
