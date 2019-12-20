@@ -1,0 +1,22 @@
+version: "2"
+
+services:
+    localstack:
+        image: localstack/localstack:0.10.6
+        ports:
+          - "4567-4597:4567-4597"
+        environment:
+            LAMBDA_EXECUTOR: docker
+            DOCKER_HOST: unix:///var/run/docker.sock
+            DATA_DIR: /tmp/localstack/data
+            SERVICES: sqs,lambda
+            DEBUG: 1
+            # 内部APIを叩きたいときなどに使う
+            LAMBDA_DOCKER_NETWORK: localstack-sqs-lambda_foo_network
+        volumes:
+          - "/var/run/docker.sock:/var/run/docker.sock"
+        networks:
+            foo_network:
+
+networks:
+    foo_network:
