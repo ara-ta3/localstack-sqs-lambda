@@ -4,6 +4,9 @@ AWS=aws
 up:
 	$(DOCKER_COMPOSE) up
 
+down:
+	$(DOCKER_COMPOSE) down
+
 build:
 	$(MAKE) -C scala build
 
