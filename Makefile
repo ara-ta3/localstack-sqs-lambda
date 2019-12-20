@@ -20,7 +20,7 @@ setup/lambda:
 		--runtime=java8 \
 		--role=dummyrole \
 		--handler=com.ru.waka.FooHandler \
-		--zip-file=fileb://./scala/target/scala-2.12/scala-assembly-0.1-SNAPSHOT.jar
+		--zip-file=fileb://./scala/target/scala-2.12/scala-assembly-0.1.0-SNAPSHOT.jar
 
 setup/lambda/sourcemapping:
 	$(AWS) --endpoint-url http://localhost:4574 \
